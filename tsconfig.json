@@ -11,5 +11,9 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true
-  }
+  },
+  "include": [
+    "src",
+    "node_modules/@types/puppeteer/index.d.ts"
+  ]
 }

@@ -24,13 +24,11 @@
     "@nestjs/common": "^9.0.5",
     "@nestjs/core": "^9.0.5",
     "@nestjs/platform-express": "^9.0.5",
-    "@sentry/node": "^7.7.0",
-    "@sentry/tracing": "^7.7.0",
-    "axios": "^0.27.2",
-    "html-pdf-node-ts": "^1.0.7",
+    "class-validator": "^0.13.2",
+    "puppeteer": "^15.5.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.6.6"
+    "rxjs": "^7.1.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
@@ -39,6 +37,7 @@
     "@types/express": "^4.17.11",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.36",
+    "@types/puppeteer": "^5.4.6",
     "@types/supertest": "^2.0.10",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",

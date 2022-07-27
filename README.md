@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest] Convert Html To PDF
+Convert a webpage to PDF
 
 ## Installation
 
@@ -58,15 +58,37 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Curl
+
+```
+curl --location --request POST 'localhost:3000/converter/pdf' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "websiteUrl" : "https://google.com"
+}'
+```
+
+## Todo
+
+[x] - HTML to PDF converter  
+[x] - Rewrite Module to make it more dynamic
+[x] - Render the website, including images
+[ ] - Dockerize & package service  
+[ ] - Unit test  
+[ ] - Setup standard code quality check with linter
+[ ] - Track code commit & error with sentry
+[ ] - Setup code commit with husky
+[ ] - Setup standard code quality check with sonarqube
+[ ] - Setup standard code quality check with betterer
+[ ] - Preload website, including all pages
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Phan Nguyen](https://github.com/Spiffy1)
 
 ## License
 
