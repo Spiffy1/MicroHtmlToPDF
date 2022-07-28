@@ -1,7 +1,7 @@
 import { Body, Controller, Header, Param, Post, Res } from '@nestjs/common'
 import { ConverterService } from './converter.service'
 import { Response } from 'express'
-import { ConvertWebsiteDto } from './dto/create-google.dto'
+import { ConvertWebsiteDto } from './dto/convert-pdf.dto'
 
 @Controller('converter')
 export class ConverterController {
