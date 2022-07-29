@@ -62,7 +62,7 @@ $ npm run lint
 # check spelling
 $ npm run cspell
 # check code quality with betterer
-npm run betterer
+$ npm run betterer
 ```
 
 ## Test
@@ -103,10 +103,12 @@ curl --location --request POST 'localhost:3000/converters/pdf' \
 [x] - Check code smell & cognitive complexity with sonarjs  
 [x] - Setup spell checker  
 [x] - Setup standard code quality check with betterer  
-[ ] - Track code commit & error with sentry
+[x] - Track code commit & error with sentry
 
 ## Optional
 
+[ ] - Load dns var from env var in Dockerfile  
+[ ] - Refactor Sentry code for ease of access
 [ ] - Setup Authentication module  
 [ ] - Setup code commit with husky  
 [ ] - Use Conventional Changelog to auto generate changelog & structurize commit history
