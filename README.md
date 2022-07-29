@@ -61,7 +61,7 @@ $ npm run test:cov
 ## Curl
 
 ```
-curl --location --request POST 'localhost:3000/converter/pdf' \
+curl --location --request POST 'localhost:3000/converters/pdf' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "websiteUrl" : "https://google.com"

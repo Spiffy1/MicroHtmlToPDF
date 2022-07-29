@@ -3,13 +3,13 @@ import { ConverterService } from './converter.service'
 import { Response } from 'express'
 import { ConvertWebsiteDto } from './dto/convert-pdf.dto'
 
-@Controller('converter')
+@Controller('converters')
 export class ConverterController {
   constructor(private readonly converterService: ConverterService) {}
 
   @Post('pdf')
   @Header('website', 'none')
   async generatePDF(@Res() res: Response, @Body() website: ConvertWebsiteDto): Promise<Response> {
-    return this.converterService.getPdfcontent(website.websiteUrl, res)
+    return this.converterService.getPdfContent(website.websiteUrl, res)
   }
 }

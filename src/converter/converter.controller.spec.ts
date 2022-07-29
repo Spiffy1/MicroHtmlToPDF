@@ -3,18 +3,17 @@ import { ConverterController } from './converter.controller'
 import { ConverterService } from './converter.service'
 
 describe('ConverterController', () => {
-  let controller: ConverterController
-
+  let converterController: ConverterController
+  let converterService: ConverterService
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
+    const moduleRef: TestingModule = await Test.createTestingModule({
       controllers: [ConverterController],
       providers: [ConverterService],
     }).compile()
-
-    controller = module.get<ConverterController>(ConverterController)
+    converterController = moduleRef.get<ConverterController>(ConverterController)
   })
 
   it('should be defined', () => {
-    expect(controller).toBeDefined()
+    expect(converterController).toBeDefined()
   })
 })
