@@ -12,7 +12,6 @@ export class ConverterService {
       browser = await chromium.launch()
       page = await browser.newPage()
     } catch (err) {
-      console.log('Cannot load chromium browser.', err)
       throw new InternalServerErrorException('Can not load chromium browser', err)
     }
 
@@ -27,9 +26,9 @@ export class ConverterService {
     try {
       pdfBuffer = await page.pdf()
     } catch (err) {
-      console.log('Error converting to pdf: ', err)
+      throw new InternalServerErrorException('Can not load chromium browser', err)
     } finally {
-      browser.close()
+      await browser.close()
     }
 
     if (!pdfBuffer) {
