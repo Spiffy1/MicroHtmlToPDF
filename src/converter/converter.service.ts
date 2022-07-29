@@ -5,7 +5,7 @@ import { PDF_ERROR_MESSAGE as errMsg } from '../core'
 
 @Injectable()
 export class ConverterService {
-  async getPdfcontent(website: string, res: Response): Promise<any> {
+  async getPdfContent(website: string, res: Response): Promise<Response<any, Record<string, any>>> {
     let browser: Browser
     let page: Page
     try {
@@ -35,7 +35,6 @@ export class ConverterService {
     if (!pdfBuffer) {
       throw new BadRequestException(errMsg.EMPTY_PDF_BUFFER)
     }
-
     return new StreamableFile(pdfBuffer).getStream().pipe(res)
   }
 }
