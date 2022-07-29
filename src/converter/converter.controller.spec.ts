@@ -4,7 +4,6 @@ import { ConverterService } from './converter.service'
 
 describe('ConverterController', () => {
   let converterController: ConverterController
-  let converterService: ConverterService
   beforeEach(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
       controllers: [ConverterController],

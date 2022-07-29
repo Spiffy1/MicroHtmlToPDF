@@ -32,6 +32,15 @@ Convert a webpage to PDF
 $ npm install
 ```
 
+## Deployment
+
+```bash
+# Build image
+docker build . -t playwright-on-node
+# Deploy service
+docker run -it --publish 3000:3000 -d --init --user pwuser  --name playwright playwright-on-node
+```
+
 ## Running the app
 
 ```bash
@@ -43,6 +52,17 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+```
+
+## Before Commit
+
+```bash
+# check code convention
+$ npm run lint
+# check spelling
+$ npm run cspell
+# check code quality with betterer
+npm run betterer
 ```
 
 ## Test
@@ -58,9 +78,13 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Swagger
+
+[Link](http://localhost:3000/api/)
+
 ## Curl
 
-```
+```bash
 curl --location --request POST 'localhost:3000/converters/pdf' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -75,13 +99,22 @@ curl --location --request POST 'localhost:3000/converters/pdf' \
 [x] - Render the website, including images  
 [x] - Dockerize & package service  
 [ ] - Unit test  
-[ ] - Setup standard code quality check with linter  
-[ ] - Track code commit & error with sentry  
+[x] - Setup standard code quality/rules with linter  
+[x] - Check code smell & cognitive complexity with sonarjs  
+[x] - Setup spell checker  
+[x] - Setup standard code quality check with betterer  
+[ ] - Track code commit & error with sentry
+
+## Optional
+
+[ ] - Setup Authentication module  
 [ ] - Setup code commit with husky  
-[ ] - Setup standard code quality check with sonarqube  
-[ ] - Setup standard code quality check with betterer  
-[ ] - Add Authentication layer  
-[ ] - Preload website, including all pages
+[ ] - Use Conventional Changelog to auto generate changelog & structurize commit history
+
+## Reference
+
+[Check Cognitive complexity with Sonarqube](https://www.sonarsource.com/resources/cognitive-complexity/)  
+[Incremental Development with Betterer](https://phenomnomnominal.github.io/betterer/docs/introduction)
 
 ## Support
 
