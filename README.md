@@ -71,15 +71,16 @@ curl --location --request POST 'localhost:3000/converter/pdf' \
 ## Todo
 
 [x] - HTML to PDF converter  
-[x] - Rewrite Module to make it more dynamic
-[x] - Render the website, including images
-[ ] - Dockerize & package service  
+[x] - Rewrite Module to make it more dynamic  
+[x] - Render the website, including images  
+[x] - Dockerize & package service  
 [ ] - Unit test  
-[ ] - Setup standard code quality check with linter
-[ ] - Track code commit & error with sentry
-[ ] - Setup code commit with husky
-[ ] - Setup standard code quality check with sonarqube
-[ ] - Setup standard code quality check with betterer
+[ ] - Setup standard code quality check with linter  
+[ ] - Track code commit & error with sentry  
+[ ] - Setup code commit with husky  
+[ ] - Setup standard code quality check with sonarqube  
+[ ] - Setup standard code quality check with betterer  
+[ ] - Add Authentication layer  
 [ ] - Preload website, including all pages
 
 ## Support

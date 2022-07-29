@@ -1,4 +1,4 @@
-import { Body, Controller, Header, Param, Post, Res } from '@nestjs/common'
+import { Body, Controller, Header, Post, Res } from '@nestjs/common'
 import { ConverterService } from './converter.service'
 import { Response } from 'express'
 import { ConvertWebsiteDto } from './dto/convert-pdf.dto'
@@ -10,6 +10,6 @@ export class ConverterController {
   @Post('pdf')
   @Header('website', 'none')
   async generatePDF(@Res() res: Response, @Body() website: ConvertWebsiteDto): Promise<Response> {
-    return this.converterService.getPdfContent(website.websiteUrl, res)
+    return this.converterService.getPdfcontent(website.websiteUrl, res)
   }
 }
