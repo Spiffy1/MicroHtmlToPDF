@@ -1,28 +1,39 @@
-import { BadRequestException, Injectable, StreamableFile } from '@nestjs/common'
+import { BadRequestException, Injectable, InternalServerErrorException, StreamableFile } from '@nestjs/common'
 import { Response } from 'express'
-import { PDF_ERROR_MESSAGE as Err } from '../core'
-import * as puppeteer from 'puppeteer'
+import { Browser, chromium, Page } from 'playwright'
+import { PDF_ERROR_MESSAGE as errMsg } from '../core'
 
 @Injectable()
 export class ConverterService {
-  async getPdfContent(website: string, res: Response): Promise<any> {
-    const browser = await puppeteer.launch()
-    let pdfBuffer: Buffer
-    let page: puppeteer.Page = await browser.newPage()
+  async getPdfcontent(website: string, res: Response): Promise<any> {
+    let browser: Browser
+    let page: Page
+    try {
+      browser = await chromium.launch()
+      page = await browser.newPage()
+    } catch (err) {
+      console.log('Cannot load chromium browser.', err)
+      throw new InternalServerErrorException('Can not load chromium browser', err)
+    }
+
     try {
       await page.goto(website, {
-        waitUntil: 'networkidle0',
+        waitUntil: 'networkidle',
       })
+    } catch (err) {
+      throw new BadRequestException(errMsg.CANT_GET_HTML_CONTENT)
+    }
+    let pdfBuffer: Buffer
+    try {
       pdfBuffer = await page.pdf()
     } catch (err) {
-      console.log(err)
-      throw new BadRequestException(Err.INVALID_URL)
+      console.log('Error converting to pdf: ', err)
     } finally {
-      await browser.close()
+      browser.close()
     }
 
     if (!pdfBuffer) {
-      throw new BadRequestException(Err.EMPTY_PDF_BUFFER)
+      throw new BadRequestException(errMsg.EMPTY_PDF_BUFFER)
     }
 
     return new StreamableFile(pdfBuffer).getStream().pipe(res)

@@ -1,9 +1,0 @@
-FROM node:18.1.0 as builder
-
-WORKDIR /app
-COPY . .
-RUN npm i
-RUN npm run build
-RUN rm -rf s*
-RUN rm -rf t*
-CMD ["sh", "-c", "node /app/dist/main.js"]
