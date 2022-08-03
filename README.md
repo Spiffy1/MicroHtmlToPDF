@@ -24,7 +24,10 @@
 
 ## Description
 
-Convert a webpage to PDF
+This service convert a webpage to PDF. It makes use of an automation test engine called playwright to render the browser in headless mode (without actually openning the browser). Overall, this is a very straight forward demonstration. Despite being younger in the market when compare to Puppeteer, Playwright offer flexibility when it comes to configuring your browsing requests. 
+
+Main code quality packages are linter, sonarjs, cspell, betterer.  
+Further quality procedures such as commit lint, sentry will be added later on.  
 
 ## Installation
 
@@ -92,26 +95,26 @@ curl --location --request POST 'localhost:3000/converters/pdf' \
 }'
 ```
 
-## Todo
+## Todo 
 
 [x] - HTML to PDF converter  
 [x] - Rewrite Module to make it more dynamic  
 [x] - Render the website, including images  
 [x] - Dockerize & package service  
-[ ] - Unit test  
 [x] - Setup standard code quality/rules with linter  
 [x] - Check code smell & cognitive complexity with sonarjs  
 [x] - Setup spell checker  
 [x] - Setup standard code quality check with betterer  
-[x] - Track code commit & error with sentry
+[x] - Track code commit & error with sentry  
+[ ] - Use Conventional Changelog to auto generate changelog & structurize commit history  
+[ ] - Load dns var from env var in Dockerfile  
+[ ] - Setup code commit with husky  
+[ ] - Refactor Sentry code for ease of access  
+[ ] - Unit test  
 
 ## Optional
 
-[ ] - Load dns var from env var in Dockerfile  
-[ ] - Refactor Sentry code for ease of access
 [ ] - Setup Authentication module  
-[ ] - Setup code commit with husky  
-[ ] - Use Conventional Changelog to auto generate changelog & structurize commit history
 
 ## Reference
 
